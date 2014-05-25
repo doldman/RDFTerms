@@ -3,17 +3,18 @@
 <head>
     <title></title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
-    <script src="crtTerm.js"></script>
+    <script src="http://localhost/RDFTerms/crtTerm.js"></script>
 </head>
 <body>
 
-   <div ng-controller="getTerms">
-        <form ng-submit="submit()">
-            <input type="text" autocomplete ng-model="termModel" />
-            <input type="submit" ng-disabled="isDisabled"/>
-        </form>
+   <div ng-app='MyModule'>
+    <div ng-controller='getTerms'>
+        <input auto-complete ui-items="names" ng-model="selected">
+        selected = {{selected}}
     </div>
+</div>
 
 </body>
 </html>

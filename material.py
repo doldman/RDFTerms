@@ -1,18 +1,16 @@
 __author__ = 'dominic'
 
 from SPARQLWrapper import SPARQLWrapper, JSON
-import rlcompleter
-import pyreadline
 
 
 
-#input("Enter a term: ")
 
 
 
 def getPrefTermsbyName(strInput):
     """
     A SPARQL query
+    :rtype : json
     :param strInput: A preferred term
     :return: the id and the id of the broader terms
     """
@@ -97,6 +95,13 @@ def getNarrowbyID(id):
     sparql.setReturnFormat(JSON)
     results = sparql.query().convert()
     return results
+
+#results = getPrefTermsbyName("a")
+#for result in results["results"]["bindings"]:
+#        print(result["term"]["value"]) #+ " : " +  result["id"]["value"])
+
+
+
 
 
 #myTerm = getPrefTermsbyName('an')
