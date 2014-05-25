@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+    <script src="crtTerm.js"></script>
+</head>
+<body>
+
+<div ng-app='MyModule'>
+    <div ng-controller='DefaultCtrl'>
+
+        <input auto-complete ui-items="term" ng-model="selected">
+        selected = {{selected}}
+        <form name="Terminology" ng-submit="getTerms(selected)">
+    </div>
+</div>
+</body>
+</html>
+
+
