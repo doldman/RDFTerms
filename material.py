@@ -2,11 +2,6 @@ __author__ = 'dominic'
 
 from SPARQLWrapper import SPARQLWrapper, JSON
 
-
-
-
-
-
 def getPrefTermsbyName(strInput):
     """
     A SPARQL query
