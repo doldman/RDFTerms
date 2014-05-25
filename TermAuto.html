@@ -8,14 +8,13 @@
 </head>
 <body>
 
-<div ng-app='MyModule'>
-    <div ng-controller='DefaultCtrl'>
-
-        <input auto-complete ui-items="term" ng-model="selected">
-        selected = {{selected}}
-        <form name="Terminology" ng-submit="getTerms(selected)">
+   <div ng-controller="getTerms">
+        <form ng-submit="submit()">
+            <input type="text" autocomplete ng-model="termModel" />
+            <input type="submit" ng-disabled="isDisabled"/>
+        </form>
     </div>
-</div>
+
 </body>
 </html>
 

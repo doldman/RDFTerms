@@ -1,35 +1,25 @@
-function DefaultCtrl($scope) {
+function getTerms($scope, $http, templateCache ) {
 
-// $scope.names = ["john", "bill", "charlie", "robert", "alban", "oscar", "marie", "celine", "brad", "drew", "rebecca", "michel", "francis", "jean", "paul", "pierre", "nicolas", "alfred", "gerard", "louis", "albert", "edouard", "benoit", "guillaume", "nicolas", "joseph"];
+$scope.method = 'POST';
+$scope.url = 'getPrefTerm.py';
 
-    $http({method: 'GET',
-    url: 'getPrefTerm.py',
-    dataType: 'json',
-    data: {}
-    }).
-    success(function(data, status, headers, config) {
-      // this callback will be called asynchronously
-     // when the response is available
-      $.scope.term = data;
-    }).
-    error(function(data, status, headers, config) {
-      // called asynchronously if an error occurs
-      // or server returns response with an error status.
-    });
-
-
-   // $scope.names = ["john", "bill", "charlie", "robert", "alban", "oscar", "marie", "celine", "brad", "drew", "rebecca", "michel", "francis", "jean", "paul", "pierre", "nicolas", "alfred", "gerard", "louis", "albert", "edouard", "benoit", "guillaume", "nicolas", "joseph"];
-}
-
-angular.module('MyModule', []).directive('autoComplete', function($timeout) {
-    return function(scope, iElement, iAttrs) {
-            iElement.autocomplete({
-                source: scope[iAttrs.uiItems],
-                select: function() {
-                    $timeout(function() {
-                      iElement.trigger('input');
-                    }, 0);
-                }
-            });
+     $http({
+     method: $scope.method,
+     url: $scope.url,
+     cache: $templateCache
+     data: termModel }).
+       success(function(data, status) {
+          $scope.status = status;
+          $scope.data = data;
+        }).
+        error(function(data, status) {
+          $scope.data = data || "Request failed";
+          $scope.status = status;
+      });
     };
-});
+
+
+
+
+
+
