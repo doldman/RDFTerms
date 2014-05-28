@@ -2,6 +2,7 @@
 <html>
 <head>
     <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
@@ -14,11 +15,10 @@
    <div ng-app='RDFTerminology'>
     <div ng-controller='GetTermsController'>
         <form>
-        <input auto-complete ui-items="names" name="terms" id="terms" ng-model="selected">
+        <input auto-complete  ui-items="names" ng-model="selected">
         selected = {{selected}}
-        <button type="submit" id="button" ng-click="GetTerms()" > Submit </button >
         </form>
-         {{results}}
+         {{selected}}
     </div>
   </div>
 

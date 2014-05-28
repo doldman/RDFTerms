@@ -17,13 +17,25 @@ myApp.service('DataService', function($http)
 });
 
 myApp.controller('GetTermsController', function($scope, DataService){
-    $scope.GetTerms = function(){
-        DataService.postData("term:" + $scope.selected, function(data){
-        $scope.results = data;
+    /* $scope.GetTerms = function($event){ */
+
+        DataService.postData($scope.selected, function(data){
+        $scope.names = data;
         });
-    };
+    // };
 });
 
 
+myApp.directive('autoComplete', function($timeout) {
+    return function(scope, iElement, iAttrs) {
+            iElement.autocomplete({
+                source: scope[iAttrs.uiItems],
+                select: function() {
+                    $timeout(function() {
+                      iElement.trigger('input');
+                    }, 0);
+                }
+            });
 
-
+    };
+ });
