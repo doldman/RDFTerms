@@ -7,7 +7,7 @@ $scope.url = 'getPrefTerm.py';
      method: $scope.method,
      url: $scope.url,
      cache: $templateCache
-     data: termModel }).
+     data: selected }).
        success(function(data, status) {
           $scope.status = status;
           $scope.data = data;

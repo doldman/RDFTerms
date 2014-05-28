@@ -4,15 +4,23 @@ print()                               # blank line, end of headers
 
 __author__ = 'dominic'
 
-import material
-import cgi
+import sys
+import json
+import cgi, cgitb
+
+form = cgi.FieldStorage()
+
+print(form.keys())
+print(form['terms'].value)
 
 
-#form = cgi.FieldStorage()
-#search = form["keyword"].value
-search = "a"
 
-myJsonTerms = material.getPrefTermsbyName(search)
-for result in myJsonTerms["results"]["bindings"]:
-    print(result["term"]["value"])
+#def myTest(data):#
+#
+#    myJson = json.loads(data)
+#    return str(myJson)#
+#
+#data = sys.stdin.read()
+#myResults = myTest(data)
+#print(myResults)
 

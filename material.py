@@ -31,10 +31,10 @@ def getPrefTermsbyName(strInput):
     """)
     sparql.setReturnFormat(JSON)
     results = sparql.query().convert()
-    return results
+    #return results
 
-    #for result in results["results"]["bindings"]:
-    #    print(result["term"]["value"] + " : " +  result["id"]["value"])
+    for result in results["results"]["bindings"]:
+        print(result["term"]["value"]) # + " : " +  result["id"]["value"])
 
 def getTermbyID(id):
     sparql = SPARQLWrapper("http://collection.britishmuseum.org/sparql")
