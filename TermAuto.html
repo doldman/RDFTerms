@@ -1,24 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='RDFTerminology'>
 <head>
     <title></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
-    <script src="RDFTerminology.js"></script>
+    <script src="./controllers/RDFTerminology.js"></script>
     <script src="./scripts/ui-bootstrap-tpls-0.11.0.min.js"></script>
 </head>
 <body>
-
-
-   <div ng-app='RDFTerminology'>
+   <div>
     <div ng-controller='GetTermsController'>
-        <form>
-        <input auto-complete  ui-items="names" ng-model="selected">
-        selected = {{selected}}
+        <form id="autoform">
+            <input auto-Complete  ng-change=GetTerms() id="auto" ui-items="names.name" ng-model="selected">
+            selected = {{selected}}
+            <button type="submit" ng-click="GetTerms()"> Submit </button >
         </form>
-         {{selected}}
+         {{names.name}}
     </div>
   </div>
 

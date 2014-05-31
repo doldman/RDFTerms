@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-print("Content-Type: text/html")     # HTML is following
+print("Content-Type: application/json")     # HTML is following
 print()                               # blank line, end of headers
 
 __author__ = 'dominic'
@@ -8,12 +8,13 @@ import sys
 import json
 import cgi, cgitb
 
-form = cgi.FieldStorage()
+cgitb.enable()
+#form = cgi.FieldStorage()
 
-print(form.keys())
-print(form['terms'].value)
-
-
+#print(form.keys())
+#print(form['auto'].value)
+#print("animal,fish")
+print('{"name":"animal"}')
 
 #def myTest(data):#
 #
