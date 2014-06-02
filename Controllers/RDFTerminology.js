@@ -17,14 +17,14 @@ myApp.service('DataService', function($http)
     };
 });
 
-myApp.controller('GetTermsController', function($scope, DataService){
-    $scope.names = {};
-    $scope = function(){
-        DataService.postData($scope.selection, function(data){
-        $scope.names = data.name;
-        });
-     };
-});
+myApp.controller('GetTermsController', function($scope, DataService) {
+
+        $scope.mydata = function()
+            { DataService.postData($scope.selection, function(data) {
+                $scope.names = data;
+            });
+        };
+    });
 
 
 
