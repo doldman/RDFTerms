@@ -1,4 +1,5 @@
-var myApp = angular.module('RDFTerminology',[]);
+var myApp = angular.module('RDFTerminology',['igTypeahead']);
+
 
 myApp.service('DataService', function($http)
     {this.postData = function(data,callback)
@@ -16,21 +17,28 @@ myApp.service('DataService', function($http)
     };
 });
 
-/*myApp.controller('GetTermsController', function($scope, DataService){
+myApp.controller('GetTermsController', function($scope, DataService){
     $scope.names = {};
-    $scope.GetTerms = function(){
-        DataService.postData($scope.selected, function(data){
+    $scope = function(){
+        DataService.postData($scope.selection, function(data){
         $scope.names = data.name;
         });
      };
-});*/
+});
+
+
+
+
+
+/*
 
 myApp.function GetTermsController($scope) {
+
     $scope.names = ["john", "bill", "charlie", "robert", "alban", "oscar", "marie", "celine", "brad", "drew", "rebecca", "michel", "francis", "jean", "paul", "pierre", "nicolas", "alfred", "gerard", "louis", "albert", "edouard", "benoit", "guillaume", "nicolas", "joseph"];
 }
 
 
-myApp.directive('autoComplete', function($timeout) {
+myApp.directive('autocomplete', function($timeout) {
     return function(scope, iElement, iAttrs) {
             iElement.autocomplete({
                 source: scope[iAttrs.uiItems],          //the Attribute uiItems - this refers to the model names. Basically autocomplete is triggered by input and has a source names
@@ -40,9 +48,8 @@ myApp.directive('autoComplete', function($timeout) {
                     }, 0);
                 }
             });
-
     };
  });
 
  //Problem is that names does not exist because something is wrong with populating that model. Perhaps trigger is before names can be populated
-
+*/

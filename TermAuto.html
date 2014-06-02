@@ -6,21 +6,19 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
-    <script src="./controllers/RDFTerminology.js"></script>
-    <script src="./scripts/ui-bootstrap-tpls-0.11.0.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="Controllers/igTypeahead.js"></script>
+    <script src="Controllers/RDFTerminology.js"></script>
+
 </head>
 <body>
    <div>
     <div ng-controller='GetTermsController'>
-        <form id="autoform">
-            <input auto-Complete  ng-change=GetTerms() id="auto" ui-items="names.name" ng-model="selected">
-            selected = {{selected}}
-            <button type="submit" ng-click="GetTerms()"> Submit </button >
-        </form>
-         {{names.name}}
-    </div>
-  </div>
 
+        <typeahead choice="selection" list="names"></typeahead>
+
+  </div>
+</div>
 </body>
 </html>
 
